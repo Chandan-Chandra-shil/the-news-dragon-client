@@ -6,14 +6,14 @@ import { AuthContext } from "../../provider/AuthProvider";
 const NavigationBar = () => {
   const { user } = useContext(AuthContext);
   return (
-    <Container>
+    <Container className="mb-5">
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home">BanglaNews</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto fw-semibold">
-              <Link to="/category/0">Home</Link>
+            <Nav className="mx-auto fw-semibold d-flex justify-content-center align-items-center">
+              <Link className="text-decoration-none" to="/category/0">Home</Link>
 
               <Nav.Link href="#pricing">About</Nav.Link>
               <Nav.Link href="#pricing">Career</Nav.Link>

@@ -44,16 +44,13 @@ const NewsCard = ({ news }) => {
       </Card.Body>
       <Card.Footer className="text-muted d-flex">
         <div className="flex-grow-1">
-          <Rating>
+          <Rating
             placeholderRating={rating.number}
-            emptySymbol=
-            {<FaRegStar></FaRegStar>}
-            placeholderSymbol=
-            {<FaStar className="text-warning"></FaStar>}
-            fullSymbol=
-            {<FaStar></FaStar>}
-          </Rating>
-          <span>{rating?.number}</span>
+            emptySymbol={<FaRegStar></FaRegStar>}
+            placeholderSymbol={<FaStar className="text-warning"></FaStar>}
+            fullSymbol={<FaStar></FaStar>}
+          ></Rating>
+          <span className="ms-2">{rating?.number}</span>
         </div>
         <div>
           <FaEye></FaEye> {total_view}
