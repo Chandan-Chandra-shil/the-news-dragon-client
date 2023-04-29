@@ -2,39 +2,43 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
 
 import Category from "../pages/Home/Category/Category";
-import Home from "../pages/Home/Home/Home";
+
 import NewsLayout from "../layouts/NewsLayout";
-import News from "../pages/News/News/News";
+
 import LoginLayout from "../layouts/LoginLayout";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import PrivetRoute from "./PrivetRoute";
+import News from "../pages/News/News/News";
+import TermsAndConditions from "../shared/TermsAndConditions/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <LoginLayout></LoginLayout>,
     children: [
       {
-        path: '/',
-        element:<Navigate to="/category/0"></Navigate>
-      
-    },
-      {
-        path: 'login',
-        element:<Login></Login>,
+        path: "/",
+        element: <Navigate to="/category/0"></Navigate>,
       },
       {
-        path: 'register',
-        element:<Register></Register>
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "register",
+        element: <Register></Register>,
+      },
+      {
+        path: '/termsAndConditions',
+        element: <TermsAndConditions></TermsAndConditions>
       }
-
-    ]
+    ],
   },
   {
     path: "/category",
     element: <Main></Main>,
     children: [
-    
       {
         path: ":id",
         element: <Category></Category>,
@@ -49,7 +53,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <News></News>,
+        element: (
+          <PrivetRoute>
+            <News></News>
+          </PrivetRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/news/${params.id}`),
       },

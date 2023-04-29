@@ -46,7 +46,7 @@ const RightNav = () => {
         </ListGroup>
       </div>
       <QZone></QZone>
-      <div>
+      <div className='ms-3'>
         <img src={bg} alt="" />
       </div>
     </div>
